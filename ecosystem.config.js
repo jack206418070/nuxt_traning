@@ -5,6 +5,6 @@ module.exports = {
     instance: 'max',
     exec_mode: 'cluster',
     max_memory_restart: '1G',
-    post: 3001
+    port: 3001
   }]
 };
