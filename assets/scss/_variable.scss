@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Paytone+One&display=swap');
+
+$primary: #40659b;
+$primary_hover: #1B1BEF;
+$bg_primary: #DFE4E5;
+
+%clearfix{
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

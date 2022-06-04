@@ -1,0 +1,15 @@
+@import './variable';
+
+body{
+  background-color: $bg_primary;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+h1{
+  color: $primary;
+  transition: .5s;
+  &:hover{
+    color: $primary_hover
+  }
+  @extend %clearfix;
+}
