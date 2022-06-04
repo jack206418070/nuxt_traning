@@ -15,7 +15,7 @@
 export default {
   data () {
     return {
-      data: '1'
+      data: '2'
     }
   }
 }
