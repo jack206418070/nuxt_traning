@@ -16,7 +16,7 @@
           <a href="/">我的訂單</a>
           <a href="/">我的折價卷</a>
           <a href="/">我的購物金</a>
-          <a href="/">收藏商品</a>
+          <nuxt-link to="/product/favor">收藏商品</nuxt-link>
           <a href="/">到貨通知</a>
         </li>
         <li class="px-15">

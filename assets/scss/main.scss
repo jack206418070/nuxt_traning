@@ -17,3 +17,10 @@
 .layout-enter, .layout-leave-active {
    opacity: 0;
 }
+
+.product-enter-active, .product-leave-active {
+  transition: opacity .4s;
+}
+.product-enter, .product-leave-active {
+   opacity: 0;
+}

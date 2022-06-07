@@ -11,7 +11,7 @@
         </template>
       </Breadcrumb>
       <ProductMenu></ProductMenu>
-      <ProductCard :product-data="data"></ProductCard>
+      <ProductCard :product-data="categoryData"></ProductCard>
     </div>
   </div>
 </template>
@@ -46,23 +46,10 @@ export default {
       data: []
     }
   },
-  watch: {
-    $route (to, from) {
-      this.getProduct()
+  computed: {
+    categoryData () {
+      return this.$store.getters.get_categoryProduct('favor')
     }
-  },
-  methods: {
-    getProduct () {
-      if(this.$route.query.type === 'favor') {
-        this.data = this.$store.getters.get_favorProduct
-      } else {
-        this.data = this.$store.state.productData
-      }
-      console.log(this.data)
-    }
-  },
-  created () {
-    this.getProduct()
   }
 }
 </script>

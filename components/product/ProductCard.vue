@@ -1,13 +1,13 @@
 <template>
   <div class="product-block">
-    <div v-for="item in data" :key="item" class="product-card">
+    <div v-for="item in productData" :key="item.name" class="product-card">
       <div class="card-img">
         <img src="~/assets/images/有機豆腐.jpeg" alt="有機豆腐">
       </div>
       <div class="card-desc">
-        <h3>有機豆腐</h3>
-        <p>400g/入</p>
-        <p>NT$60</p>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.unit }}</p>
+        <p>NT${{ item.price }}</p>
       </div>
       <div class="card-footer">
         <button type="button">加入購物籃</button>
@@ -21,11 +21,10 @@ export default {
   props: ['productData'],
   data () {
     return {
-      data: 0
     }
   },
   mounted () {
-    this.data = +this.productData;
+    console.log(this.productData)
   }
 }
 </script>
