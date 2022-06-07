@@ -1,0 +1,30 @@
+/* text set */
+
+.text-{
+    &right{
+        text-align: right;
+    }
+    &center{
+        text-align: center;
+    }
+    &left{
+        text-align: left;
+    }
+}
+
+
+/* text set */
+.text-primary{
+  color: $primary
+}
+
+.text-secondary{
+  color: $secondary
+}
+
+.text-ver-lr{
+    writing-mode: vertical-lr;
+}
+.text-ver-rl{
+    writing-mode: vertical-rl;
+}

@@ -1,13 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Paytone+One&display=swap');
+$primary: #499537;
+$secondary: #ecf4eb;
+$drak: #29211b;
+$gray: rgba(41,33,27,.7);
 
-$primary: #40659b;
-$primary_hover: #1B1BEF;
-$bg_primary: #DFE4E5;
+$font-s-base: 1rem;
+$font-s-s: 0.75rem;
+$font-s-m: 1.25rem;
+$font-s-l: 1.5rem;
 
-%clearfix{
-  &:after{
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
+$max-width: 1140px;
+
+
+
+$space: 4;
+
+
+$helper-sizes:(
+    'xxs': 5px,
+    'xs': 10px,
+    's': 20px,
+    'm': 35px,
+    'l': 50px,
+    'xl': 100px
+);
+
+$helper-flex:(
+    'center':  center,
+    'between': space-between,
+    'around': space-around,
+    'start': flex-start,
+    'end': flex-end,
+    'stretch': stretch,
+    'baseline': baseline
+);

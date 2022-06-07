@@ -1,0 +1,129 @@
+header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  transition: .3s;
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: 0 8px 20px #999;
+  &.small{
+    padding-top: 20px;
+    padding-bottom: 0px;
+    img{
+      width: 150px;
+    }
+    .header-top{
+      margin-bottom: 0px;
+    }
+    nav{
+      font-size: $font-s-base;
+    }
+    .user-setting{
+      top: -5px;
+    }
+  }
+}
+.logo{
+  img{
+    width: 240px;
+  }
+  cursor: pointer;
+}
+.header-top{
+  position: relative;
+  .user-setting{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(41,33,27,.7);
+    cursor: pointer;
+    .login{
+      position: relative;
+      transition: .3s;
+      &:before{
+        content: '';
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        background-color: #aaa;
+      }
+      &:hover{
+        span{
+          color: #499537;
+        }
+      }
+    }
+    .signUp{
+      transition: .3s;
+      &:hover{
+        color: #499537;
+      }
+    }
+    .cart{
+      height: 25px;
+      transition: .3s;
+      svg{
+        height: 25px;
+        width: 25px;
+      }
+      &:hover{
+        color: #499537;
+      }
+    }
+  }
+}
+nav {
+  font-size: $font-s-m;
+}
+.nav-item{
+  color: $gray;
+  cursor: pointer;
+  font-family: 'Noto Sans TC',  
+  sans-serif;
+  letter-spacing: 1.3px;
+  transition: .3s;
+  position: relative;
+  @media (max-width: 1083px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include pad{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .arrow-icon{
+   padding-left: 15px;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: $primary;
+    height: 3px;
+    width: 0px;
+    transition: .3s;
+  }
+  &.search{
+    &:before{
+      left: auto;
+    }
+  }
+  &:hover{
+    color: $primary;
+    &:before{
+      width: 100%;
+    }
+    &.search{
+      &:before{
+        width: 50%;
+      }
+    }
+  }
+}

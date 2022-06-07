@@ -1,0 +1,19 @@
+@import './variable';
+@import './mixin/mixin';
+@import './utils/display';
+@import './utils/helpers';
+@import './utils/space';
+@import './utils/textSet';
+@import './reset';
+@import './base';
+@import './modle/loginModal';
+@import './modle/btn';
+@import './layout/header';
+@import './layout/footer';
+
+.layout-enter-active, .layout-leave-active {
+  transition: opacity .4s;
+}
+.layout-enter, .layout-leave-active {
+   opacity: 0;
+}

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Paytone+One&display=swap');
+
+
+body{
+  line-height: 1.5;
+  font-family: 'Noto Sans TC', 'Paytone One', sans-serif;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a{
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1140px;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin: 0 auto;
+  @include pad{
+    max-width: 996px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  @include mobile{
+    max-width: 768px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

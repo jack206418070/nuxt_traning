@@ -1,24 +1,27 @@
 <template>
   <div>
-    <header>
-      <h1>我的網站</h1>
-      <div>
-        <nuxt-link to="/">首頁</nuxt-link>
-        <nuxt-link to="/member">about</nuxt-link>
-        <nuxt-link to="/article">文章</nuxt-link>
-        <nuxt-link to="/tpe">文章</nuxt-link>
-      </div>
-    </header>
+    <LoginModal ref="loginModal" />
+    <Header @openlogin="openLoginModal" />
     <nuxt />
-    <footer>
-      僅供教學使用
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
+import LoginModal from '~/components/modal/LoginModal.vue'
 export default {
-
+  components: {
+    Header,
+    Footer,
+    LoginModal
+  },
+  methods: {
+    openLoginModal () {
+      this.$refs.loginModal.openModal();
+    }
+  }
 }
 </script>
 

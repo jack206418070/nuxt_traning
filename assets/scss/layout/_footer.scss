@@ -1,0 +1,33 @@
+footer{
+  background-color: $primary;
+  padding-top: 40px;
+  font-family: 'Noto Sans TC',  
+  sans-serif;
+  color: #fff;
+  letter-spacing: 1.3px;
+  h3{
+    opacity: .9;
+    font-size: $font-s-base * 1.2;
+  }
+  ul{
+    padding: 0 20px;
+  }
+  a{
+    display: block;
+    opacity: .7;
+    padding: 5px 0;
+    font-size: $font-s-base * 0.875;
+    transition: .3s;
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+  hr, p{
+    opacity: .5;
+    font-size: $font-s-s;
+  }
+  hr{
+    margin: 0;
+    padding: 0;
+  }
+}

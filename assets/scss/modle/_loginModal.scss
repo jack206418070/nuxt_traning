@@ -1,0 +1,111 @@
+.mask{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+  z-index: -1;
+  &.show{
+    opacity: 1;
+    z-index: 101;
+    .login-modal{
+      opacity: 1;
+    }
+  }
+}
+.login-modal{
+  position: fixed;
+  overflow-y: auto;
+  top: 50%;
+  width: 600px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  background-color: #fff;
+  z-index: 200;
+  opacity: 0;
+  padding: 30px 80px;
+  transition: .5s;
+  .icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #499537;
+    border: 2px solid #499537;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    svg{
+      width: 40px;
+      height: 40px;
+    }
+  }
+  h3{
+    font-size: 20px;
+    letter-spacing: 1.3px;
+    color:  rgba(41,33,27,.9);
+  }
+  .close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color:rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: .3s;
+    &:hover{
+      color: #499537;
+    }
+    svg{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .form-group{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .form-control{
+    color: rgba(41,33,27,.7);
+    letter-spacing: 1.3px;
+    margin-bottom: 20px;
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #499537;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      transition: .3s;
+    }
+    &.foucs{
+      &:before{
+        width: 100%;
+      }
+    }
+    label{
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    input{
+      width: 100%;
+      letter-spacing: 1.3px;
+      outline: 0;
+      border: 1px solid rgba(41,33,27,.7);
+      padding: 15px 0;
+      padding-left: 12px;
+      &:focus{
+        outline: 0;
+      }
+    }
+  }
+  button{
+    width: 50%;
+    padding: 12px;
+  }
+}

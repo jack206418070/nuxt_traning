@@ -14,19 +14,25 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' }
-    ]
+    script: []
+  },
+
+  loading: { color: '#499537', height: '2px', duration: 3000 },
+
+  transition: {
+    name: 'layout',
+    mode: 'out-in'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/scss/demo.scss'
+    '~/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/datepicker.js', mode: 'client' },
+    { src: '~/plugins/gsap.js', mode: 'clinet'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -34,6 +40,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -44,9 +51,19 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
+  fontawesome:{
+    component: 'fa',
+    icons:{
+        solid: true,
+        regular: true
+    }
+  },
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/server/api.js' }
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
