@@ -40,8 +40,8 @@ export const state = () => ({
 })
 // getter 可以做資料處理
 export const getters = {
-  get_categoryProduct: (state) => (category) => {
-    let tempArr = state.productData.filter(item => item[category] === true)
+  get_FavorProduct: state => {
+    let tempArr = state.productData.filter(item => item.favor === true)
     return tempArr
   }
 }

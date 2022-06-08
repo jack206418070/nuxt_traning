@@ -15,7 +15,7 @@
           <input type="password" id="password" name="password" placeholder="請輸入密碼" autocomplete="true" @focus="foucsInput" @blur="blurInput">
         </div>
       </div>
-      <button type="button" class="btn btn-primary">登入</button>
+      <button type="button" class="btn btn-primary" @click="routeTo('user')">登入</button>
       <div class="close-btn" @click="closeModal">
         <fa :icon="['fas', 'times']" />
       </div>
@@ -42,6 +42,10 @@ export default {
     },
     blurInput (e) {
       e.target.parentElement.className = 'form-control'
+    },
+    routeTo (router) {
+      this.closeModal()
+      this.$router.push(router)
     }
   }
 }

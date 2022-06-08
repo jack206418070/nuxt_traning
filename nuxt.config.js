@@ -26,13 +26,15 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/scss/main.scss'
+    '~/assets/scss/main.scss',
+    "swiper/swiper-bundle.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/datepicker.js', mode: 'client' },
-    { src: '~/plugins/gsap.js', mode: 'clinet'}
+    { src: '~/plugins/gsap.js', mode: 'clinet'},
+    { src: "~/plugins/vue-swiper.js", ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

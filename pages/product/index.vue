@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss">
   .product{
-    margin-top: 145px;
+    margin-top: 155px;
     .banner{
       background-image: url('@/assets/images/product-banner.jpeg');
     }
