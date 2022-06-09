@@ -1,54 +1,29 @@
 export const state = () => ({
-  productData: [
-    {
-      name: '有機豆腐',
-      unit: '200g/盒',
-      price: 60,
-      favor: true
-    },
-    {
-      name: '有機豆腐2',
-      unit: '200g/盒',
-      price: 80,
-      favor: false
-    },
-    {
-      name: '有機豆腐3',
-      unit: '200g/盒',
-      price: 100,
-      favor: true
-    },
-    {
-      name: '有機豆腐4',
-      unit: '200g/盒',
-      price: 120,
-      favor: false
-    },
-    {
-      name: '有機豆腐5',
-      unit: '200g/盒',
-      price: 160,
-      favor: true
-    },
-    {
-      name: '有機豆腐6',
-      unit: '200g/盒',
-      price: 260,
-      favor: false
-    }
-  ]
+  productData: [],
+  favorProductData: []
 })
 // getter 可以做資料處理
 export const getters = {
-  get_FavorProduct: state => {
-    let tempArr = state.productData.filter(item => item.favor === true)
-    return tempArr
-  }
 }
 
 export const mutations = {
+  add_product: (state, { name, value }) => {
+    state[name] = value
+  }
 }
 
 export const actions = {
-
+  async getProducts (context, payload) {
+    let res = await this.$axios.get('http://127.0.0.1:3000/api/products')
+    const productData = res.data.productData
+      //把拿到的 data 用 mutations 加入
+    context.commit('add_product', { name: 'productData', value: productData })
+    return productData
+  },
+  async getFavorProducts (context, payload) {
+    let data = await this.$axios('/api/products')
+    const productData = data.data.productData.filter(item => item.favor === true)
+    context.commit('add_product', { name: 'favorProductData', value: productData })
+    return productData
+  }
 }

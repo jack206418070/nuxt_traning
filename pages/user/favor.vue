@@ -20,9 +20,12 @@ import Breadcrumb from '~/components/Breadcrumb'
 import ProductCard from '~/components/product/ProductCard'
 export default {
   components: { Breadcrumb, ProductCard },
+  async asyncData (context) {
+    context.$store.dispatch('getFavorProducts')
+  },
   computed: {
     FavorProduct () {
-      return this.$store.getters.get_FavorProduct
+      return this.$store.state.favorProductData
     }
   }
 }

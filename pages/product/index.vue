@@ -11,7 +11,7 @@
         </template>
       </Breadcrumb>
       <ProductMenu></ProductMenu>
-      <ProductCard :product-data="data"></ProductCard>
+      <ProductCard :product-data="productData"></ProductCard>
     </div>
   </div>
 </template>
@@ -37,33 +37,23 @@ export default {
   },
   transition: 'product',
   components: { Banner, Breadcrumb, ProductMenu, ProductCard },
-  async asyncData () {
-    await sleep(1000)
+  async asyncData (context) {
+    await context.store.dispatch('getProducts')
+    const productData = context.store.state.productData
+    return {
+      productData
+    }
   },
   data () {
     return {
-      title: '這是測試頁面',
-      data: []
+      title: '什麼都賣什麼都不奇怪'
     }
   },
-  watch: {
-    $route (to, from) {
-      this.getProduct()
-    }
-  },
-  methods: {
-    getProduct () {
-      if(this.$route.query.type === 'favor') {
-        this.data = this.$store.getters.get_favorProduct
-      } else {
-        this.data = this.$store.state.productData
-      }
-      console.log(this.data)
-    }
-  },
-  created () {
-    this.getProduct()
-  }
+  // computed: {
+  //   productData () {
+  //     return this.$store.state.productData
+  //   }
+  // }
 }
 </script>
 

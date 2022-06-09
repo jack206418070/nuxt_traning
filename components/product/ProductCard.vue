@@ -18,7 +18,14 @@
 
 <script>
 export default {
-  props: ['productData'],
+  props: {
+    productData:{
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
   data () {
     return {
     }
