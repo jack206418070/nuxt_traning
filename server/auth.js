@@ -75,6 +75,7 @@ app.get("/google", async (req, res)=> {
       returnSecureToken: true,
       returnIdpCredential: true
     });
+    console.log(firebase_result)
     //要傳給前端的資訊
     const firebase_id_token = firebase_result.data.idToken;
     const refresh_token = firebase_result.data.refreshToken;
