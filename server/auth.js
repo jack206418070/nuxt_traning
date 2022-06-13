@@ -111,7 +111,7 @@ app.get("/facebook", async (req, res)=> {
   const id_token = result.data.id_token; //jwt token
   const access_token = result.data.access_token;
 
-  console.log(access_token,"access_token")
+  // console.log(access_token,"access_token")
   //到這個流程就算取得 google 的 access_token ，你可以開始請求 google 的資源，例如請求使用者的 email  
   //https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=ya29.a0Ae4lvC3EFz9mlS75b9DXi5x_1kIr83w21f6yk1S7JHmOm-rCJtzjWgW9_Z7QXwqweyDuhz-jATx2s_xieGZIPJPE6d4-B3wgrf2-BgN3m5BYStREsXsRmyq1x8CozKWConw3iugw-K0ZizMqqCge8kbT978CcVDTJWg
   
@@ -125,6 +125,7 @@ app.get("/facebook", async (req, res)=> {
     returnSecureToken: true,
     returnIdpCredential: true
   });
+  console.log(firebase_result)
   // //要傳給前端的資訊
   const firebase_id_token = firebase_result.data.idToken;
   const refresh_token = firebase_result.data.refreshToken;
