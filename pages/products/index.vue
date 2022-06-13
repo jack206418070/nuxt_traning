@@ -11,7 +11,7 @@
         </template>
       </Breadcrumb>
       <ProductMenu></ProductMenu>
-      <ProductCard :product-data="categoryData"></ProductCard>
+      <ProductCard :product-data="productData"></ProductCard>
     </div>
   </div>
 </template>
@@ -37,26 +37,28 @@ export default {
   },
   transition: 'product',
   components: { Banner, Breadcrumb, ProductMenu, ProductCard },
-  async asyncData () {
-    await sleep(1000)
+  async asyncData (context) {
+    await context.store.dispatch('getProducts')
   },
   data () {
     return {
-      title: '這是測試頁面',
-      data: []
+      title: '什麼都賣什麼都不奇怪'
     }
   },
   computed: {
-    categoryData () {
-      return this.$store.getters.get_categoryProduct('favor')
+    productData () {
+      return this.$store.state.productData
     }
+  },
+  mounted () {
+    console.log(process.env.NODE_ENV)
   }
 }
 </script>
 
 <style lang="scss">
   .product{
-    margin-top: 145px;
+    margin-top: 155px;
     .banner{
       background-image: url('@/assets/images/product-banner.jpeg');
     }

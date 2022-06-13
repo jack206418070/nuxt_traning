@@ -55,6 +55,9 @@ export default {
   axios: {
     baseURL: '/',
   },
+  env: {
+    firebaseApiKey: 'AIzaSyBNwZR_rKdf03VoYPnF9zYO704hXy3i7BQ'
+  },
   fontawesome:{
     component: 'fa',
     icons:{
@@ -64,7 +67,8 @@ export default {
   },
 
   serverMiddleware: [
-    { path: '/api', handler: '~/server/api.js' }
+    { path: '/api', handler: '~/server/api.js' },
+    { path: '/auth', handler: '~/server/auth.js' }
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

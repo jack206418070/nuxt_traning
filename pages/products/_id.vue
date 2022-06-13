@@ -7,11 +7,11 @@
     <div class="container">
       <Breadcrumb>
         <template v-slot:bread-1>
-          <nuxt-link to="/product"><span class="px-1">/</span> 當季蔬果</nuxt-link>
+          <nuxt-link to="/products"><span class="px-1">/</span> 當季蔬果</nuxt-link>
         </template>
       </Breadcrumb>
       <ProductMenu></ProductMenu>
-      <ProductCard :product-data="productData"></ProductCard>
+      <ProductCard :product-data="[]"></ProductCard>
     </div>
   </div>
 </template>
@@ -37,29 +37,28 @@ export default {
   },
   transition: 'product',
   components: { Banner, Breadcrumb, ProductMenu, ProductCard },
-  async asyncData (context) {
-    await context.store.dispatch('getProducts')
-    const productData = context.store.state.productData
-    return {
-      productData
+  validate (context) {
+    const reg = /[0-9]{9}/
+    if (!reg.test(context.params.id)){
+      return false
     }
+    return true
+  },
+  async asyncData () {
+    await sleep(1000)
   },
   data () {
     return {
-      title: '什麼都賣什麼都不奇怪'
+      title: '這是測試頁面',
+      data: []
     }
-  },
-  // computed: {
-  //   productData () {
-  //     return this.$store.state.productData
-  //   }
-  // }
+  }
 }
 </script>
 
 <style lang="scss">
   .product{
-    margin-top: 155px;
+    margin-top: 145px;
     .banner{
       background-image: url('@/assets/images/product-banner.jpeg');
     }

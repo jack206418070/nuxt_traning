@@ -30,15 +30,7 @@ export default {
         pagination: {
           el: ".swiper-pagination",
         },
-        autoplay: true,
-        on: {
-          slideChange() {
-            console.log("onSlideChangeEnd", this);
-          },
-          tap() {
-            console.log("onTap", this);
-          },
-        },
+        autoplay: true
       }
     }
   },

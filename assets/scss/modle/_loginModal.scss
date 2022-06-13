@@ -104,8 +104,13 @@
       }
     }
   }
+  .btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
   button{
-    width: 50%;
+    width: 45%;
     padding: 12px;
   }
 }

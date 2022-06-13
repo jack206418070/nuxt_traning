@@ -1,7 +1,14 @@
 <template>
   <div>
-    <LoginModal ref="loginModal" />
-    <Header @openlogin="openLoginModal" />
+    <LoginModal
+      @login="login"
+      @register="register"
+      ref="loginModal" 
+    />
+    <Header
+      @openlogin="openLoginModal"
+      @logout="logout"
+    />
     <nuxt />
     <Footer />
   </div>
@@ -11,6 +18,7 @@
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import LoginModal from '~/components/modal/LoginModal.vue'
+
 export default {
   components: {
     Header,
@@ -18,8 +26,36 @@ export default {
     LoginModal
   },
   methods: {
-    openLoginModal () {
-      this.$refs.loginModal.openModal();
+    openLoginModal (is_signUp) {
+      this.$refs.loginModal.openModal(is_signUp);
+    },
+    closeLoginModal () {
+      this.$refs.loginModal.closeModal();
+    },
+    logout () {
+    },
+    login (user) {
+      this.$axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.firebaseApiKey}`, {
+          ...user,
+          returnSecureToken: true
+      }).then(res => {
+        this.closeLoginModal()
+        console.log(res.data)
+        this.$store.commit('user/user_login')
+      }).catch(err => {
+        console.dir(err)
+      })
+    },
+    register (user) {
+      this.$axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.firebaseApiKey}`, {
+          ...user,
+          returnSecureToken: true
+      }).then(res => {
+        this.closeLoginModal()
+        console.log(res)
+      }).catch(err => {
+        console.dir(err)
+      })
     }
   }
 }
