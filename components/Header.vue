@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie'
 import jwtDecode from 'jwt-decode'
 
 export default {
@@ -83,6 +84,7 @@ export default {
     }
   },
   mounted () {
+    console.log(Cookie)
     const vm = this
     document.getElementsByTagName('body')[0].onscroll = () => {
       if (typeof window !== 'undefined') {
@@ -103,6 +105,16 @@ export default {
         userName: id_token_Decode.name,
       });
       window.history.replaceState(null, null, window.location.pathname);
+      return
+    }
+    if (Cookie.get('id_token')) {
+      this.$store.commit('user/setUserLogin', {
+        id_token: Cookie.get('id_token'),
+        refresh_token: Cookie.get('refresh_token'),
+        userUid: Cookie.get('userUid'),
+        userPicture: Cookie.get('userPicture'),
+        userName: Cookie.get('userName'),
+      });
     }
   }
 }

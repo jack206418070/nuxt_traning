@@ -33,6 +33,7 @@ export default {
       this.$refs.loginModal.closeModal();
     },
     logout () {
+      this.$store.commit('user/setUserLogout')
     },
     login (user) {
       this.$axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.firebaseApiKey}`, {
@@ -40,7 +41,6 @@ export default {
           returnSecureToken: true
       }).then(res => {
         this.closeLoginModal()
-        console.log(res.data)
         this.$store.commit('user/user_login')
       }).catch(err => {
         console.dir(err)
