@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
   async getProducts ({ commit }) {
     try {
-      let res = await this.$axios.get('http://127.0.0.1:3000/api/products')
+      let res = await this.$axios.get('https://ginjack.shop/api/products')
       const productData = res.data.productData
       //把拿到的 data 用 mutations 加入
       commit('add_product', { name: 'productData', value: productData })
@@ -26,7 +26,7 @@ export const actions = {
   },
   async getFavorProducts ({ commit }) {
     try {
-      let data = await this.$axios('http://127.0.0.1:3000/api/products')
+      let data = await this.$axios('https://ginjack.shop/api/products')
       const productData = data.data.productData.filter(item => item.favor === true)
       commit('add_product', { name: 'favorProductData', value: productData })
       return productData
