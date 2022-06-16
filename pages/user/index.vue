@@ -13,6 +13,7 @@
 <script>
 import Breadcrumb from '~/components/Breadcrumb'
 export default {
+  middleware: ['auth'],
   components: { Breadcrumb }
 }
 </script>

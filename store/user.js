@@ -8,20 +8,17 @@ export const state = () => ({
 })
 
 export const mutations = {
-  user_login: (state, payload) => {
-    state.isUserLogin = true
-  },
   setUserLogin: (state, payload) => {
     state.isUserLogin = true
     state.userPicture = payload.userPicture || "https://bulma.io/images/placeholders/128x128.png"
     state.userName = payload.userName
     state.userUid = payload.userUid
-
     Cookie.set('id_token', payload.id_token)
     Cookie.set('refresh_token', payload.refresh_token)
-    Cookie.set('userUid', payload.userUid)
-    Cookie.set('userPicture', payload.userPicture)
-    Cookie.set('userName', payload.userName)
+    Cookie.set('exp', payload.exp)
+    Cookie.set('userUid', state.userUid)
+    Cookie.set('userPicture', state.userPicture)
+    Cookie.set('userName', state.userName)
   },
   setUserLogout: (state, payload) => {
     state.isUserLogin = false
@@ -33,6 +30,7 @@ export const mutations = {
     Cookie.remove('userUid')
     Cookie.remove('userPicture')
     Cookie.remove('userName')
+    Cookie.remove('exp')
     $nuxt.$router.push({ name: 'index' })
   }
 }

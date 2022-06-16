@@ -24,6 +24,16 @@ header{
       top: -5px;
     }
   }
+  .user-img{
+    border-radius: 50%;
+    border: 1px solid #000400;
+    overflow: hidden;
+    img{
+      display: block;
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
 .logo{
   img{

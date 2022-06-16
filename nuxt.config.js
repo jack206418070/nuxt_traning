@@ -34,7 +34,8 @@ export default {
   plugins: [
     { src: '~/plugins/datepicker.js', mode: 'client' },
     { src: '~/plugins/gsap.js', mode: 'clinet'},
-    { src: "~/plugins/vue-swiper.js", ssr: false }
+    { src: "~/plugins/vue-swiper.js", ssr: false },
+    { src: '~/plugins/axios.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,7 +43,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    ['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,9 +57,6 @@ export default {
   axios: {
     baseURL: '/',
   },
-  env: {
-    firebaseApiKey: 'AIzaSyBNwZR_rKdf03VoYPnF9zYO704hXy3i7BQ'
-  },
   fontawesome:{
     component: 'fa',
     icons:{
@@ -67,7 +66,6 @@ export default {
   },
 
   serverMiddleware: [
-    { path: '/api', handler: '~/server/api.js' },
     { path: '/auth', handler: '~/server/auth.js' }
   ],
 

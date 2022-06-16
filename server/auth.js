@@ -3,14 +3,20 @@ const app = express();
 const axios = require('axios');
 const qs = require('querystring')
 
+let env = {
+  ...require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` }).parsed,
+  ...require('dotenv').config().parsed
+}
+
+
 var google_client_id = "992341073894-d81rd66k8j77r3res1l31reh3b0emlqp.apps.googleusercontent.com";
 var google_secret_id = "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"; //這個一定不能曝露到客戶端!!!
-var firebaseApiKey = "AIzaSyBNwZR_rKdf03VoYPnF9zYO704hXy3i7BQ" //填上firebase 的 api key (不能填 nuxt.config.js 裡的 process env)
-
 var facebook_client_id = '1906102319585288'
 var facebook_secret_id = 'bc2fa868e8fef5f5a1a8be322d89ff3f'
-var process_url = "http://localhost:3000"; //填上你開發環境的網址
-if(process.env.NODE_ENV == "production") process_url = "https://ginjack.shop"; //填上你生產環境的網址
+const firebaseApiKey = env.firebaseApiKey //填上firebase 的 api key (不能填 nuxt.config.js 裡的 process env)
+const process_url = env.web_url //填上你開發環境的網址
+
+
 
 app.get('/', (req, res) => {
   var referer = req.headers.referer;//前端請求過來的路徑

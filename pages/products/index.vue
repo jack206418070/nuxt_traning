@@ -49,9 +49,6 @@ export default {
     productData () {
       return this.$store.state.productData
     }
-  },
-  mounted () {
-    console.log(process.env.NODE_ENV)
   }
 }
 </script>
